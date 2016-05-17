@@ -16,5 +16,5 @@ Vagrant.configure("2") do |config|
   config.vm.provision :shell do |shell|
     shell.inline = "sudo cp -r python/* /var/www/service"
   end
-  config.vm.network :forwarded_port, guest: 80, host: 8080
+  config.vm.network "private_network", ip: "192.168.50.4"
 end

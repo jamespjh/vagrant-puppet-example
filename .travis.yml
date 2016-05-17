@@ -1,0 +1,18 @@
+language: python
+python: 2.7
+script: py.test
+branches:
+  only:
+    - master
+notifications:
+  email: false
+install:
+  - gem install puppet
+  - mkdir -p /etc/puppet/modules;
+  - puppet module install puppetlabs/apache;
+  - puppet module install puppetlabs/firewall;
+  - puppet module install stahnma/epel"
+  - puppet apply manifests/default.pp
+addons:
+  hosts:
+    - http://testws.ucl.ac.uk
